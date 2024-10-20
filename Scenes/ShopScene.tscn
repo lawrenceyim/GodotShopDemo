@@ -1,0 +1,63 @@
+[gd_scene load_steps=5 format=3 uid="uid://d1vuawd8ttgw2"]
+
+[ext_resource type="Texture2D" uid="uid://dd2o3p8yy128u" path="res://Assets/Shop UI.png" id="1_gcbnb"]
+[ext_resource type="Script" path="res://Scripts/Shop.cs" id="2_5slbs"]
+[ext_resource type="Texture2D" uid="uid://3sxgbtbho3w" path="res://Assets/icon.svg" id="3_ofpp5"]
+[ext_resource type="PackedScene" uid="uid://b80d42mglaag6" path="res://Prefabs/ShopSlot.tscn" id="3_vc2ll"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Sprite2D - Background" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+texture = ExtResource("1_gcbnb")
+
+[node name="Control" type="Control" parent="." node_paths=PackedStringArray("shopSlots", "moneyLabel")]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 182.0
+offset_top = 558.0
+offset_right = 1737.0
+offset_bottom = 904.0
+script = ExtResource("2_5slbs")
+shopSlots = [NodePath("Button - Slot 1"), NodePath("Button - Slot 2"), NodePath("Button - Slot 3"), NodePath("Button - Slot 4")]
+godotIcon = ExtResource("3_ofpp5")
+moneyLabel = NodePath("Label - Money")
+
+[node name="Label - Money" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 1277.0
+offset_top = -543.0
+offset_right = 1715.0
+offset_bottom = -431.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 36
+text = "Money: "
+horizontal_alignment = 2
+
+[node name="Button - Slot 1" parent="Control" instance=ExtResource("3_vc2ll")]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 40.0
+offset_right = 308.0
+offset_bottom = 298.0
+
+[node name="Button - Slot 2" parent="Control" instance=ExtResource("3_vc2ll")]
+layout_mode = 0
+offset_left = 450.0
+offset_top = 40.0
+offset_right = 708.0
+offset_bottom = 298.0
+
+[node name="Button - Slot 3" parent="Control" instance=ExtResource("3_vc2ll")]
+layout_mode = 0
+offset_left = 850.0
+offset_top = 40.0
+offset_right = 1108.0
+offset_bottom = 298.0
+
+[node name="Button - Slot 4" parent="Control" instance=ExtResource("3_vc2ll")]
+layout_mode = 0
+offset_left = 1250.0
+offset_top = 40.0
+offset_right = 1508.0
+offset_bottom = 298.0

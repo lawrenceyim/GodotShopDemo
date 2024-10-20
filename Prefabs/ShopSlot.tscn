@@ -1,0 +1,49 @@
+[gd_scene load_steps=4 format=3 uid="uid://b80d42mglaag6"]
+
+[ext_resource type="Texture2D" uid="uid://dmf0kcxb68eot" path="res://Assets/Shop Item Slot.png" id="1_w6f58"]
+[ext_resource type="Script" path="res://Scripts/ShopSlot.cs" id="2_cr72g"]
+[ext_resource type="Texture2D" uid="uid://c4idwsmfx3h7b" path="res://Assets/Item Description Box.png" id="3_s0rcn"]
+
+[node name="Button" type="Button" node_paths=PackedStringArray("nameLabel", "costLabel", "descriptionLabel", "labelDisplay")]
+offset_right = 8.0
+offset_bottom = 8.0
+icon = ExtResource("1_w6f58")
+icon_alignment = 1
+script = ExtResource("2_cr72g")
+nameLabel = NodePath("ItemDescriptionBox/Label - Name")
+costLabel = NodePath("ItemDescriptionBox/Label - Cost")
+descriptionLabel = NodePath("ItemDescriptionBox/Label - Description")
+labelDisplay = NodePath("ItemDescriptionBox")
+
+[node name="ItemDescriptionBox" type="Sprite2D" parent="."]
+position = Vector2(129, -250)
+texture = ExtResource("3_s0rcn")
+
+[node name="Label - Name" type="Label" parent="ItemDescriptionBox"]
+offset_left = -187.0
+offset_top = -185.0
+offset_right = 187.0
+offset_bottom = -140.0
+theme_override_font_sizes/font_size = 36
+text = "name"
+
+[node name="Label - Cost" type="Label" parent="ItemDescriptionBox"]
+offset_left = -187.0
+offset_top = -131.0
+offset_right = 187.0
+offset_bottom = -81.0
+theme_override_font_sizes/font_size = 36
+text = "Cost"
+
+[node name="Label - Description" type="Label" parent="ItemDescriptionBox"]
+offset_left = -187.0
+offset_top = -71.0
+offset_right = 187.0
+offset_bottom = 189.0
+theme_override_font_sizes/font_size = 36
+text = "Description of the item"
+autowrap_mode = 2
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="pressed" from="." to="." method="_on_pressed"]
